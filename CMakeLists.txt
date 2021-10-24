@@ -8,12 +8,12 @@ message("-------------------------------${PROJECT_NAME}-------------------------
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 11)
 
-#list(APPEND CHAPTERS shaders)
+list(APPEND CHAPTERS Chapter1)
 
 
-#foreach(chapter ${CHAPTERS})
-#	add_subdirectory(${chapter})
-#endforeach()
+foreach(chapter ${CHAPTERS})
+	add_subdirectory(${chapter})
+endforeach()
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
@@ -38,5 +38,7 @@ include_directories(
  )
 
 add_executable(${PROJECT_NAME} main.cpp)
+
+target_link_libraries(${PROJECT_NAME}  ${CHAPTERS})
 
 
